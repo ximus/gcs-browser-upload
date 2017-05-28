@@ -1,5 +1,7 @@
+require('longjohn')
 require('babel-core/register')
 require('babel-polyfill')
+require('isomorphic-fetch')
 
 var chai = require('chai')
 

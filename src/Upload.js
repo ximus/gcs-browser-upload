@@ -1,4 +1,4 @@
-import { put } from 'axios'
+import put from './put'
 import FileMeta from './FileMeta'
 import FileProcessor from './FileProcessor'
 import debug from './debug'

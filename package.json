@@ -6,7 +6,8 @@
   "scripts": {
     "test": "make test",
     "compile": "make compile",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "install": "make compile"
   },
   "repository": {
     "type": "git",
@@ -36,19 +37,21 @@
     "filereader": "oliverwoodings/FileReader",
     "get-port": "^2.1.0",
     "localStorage": "^1.0.3",
+    "longjohn": "^0.2.12",
     "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
     "pify": "^2.3.0",
     "random-string": "^0.1.2",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
-    "standard": "^6.0.8"
+    "standard": "^6.0.8",
+    "whatwg-fetch": "^2.0.3"
   },
   "dependencies": {
-    "axios": "^0.9.1",
     "debug": "^2.2.0",
     "es6-error": "^2.1.0",
-    "es6-promise": "^3.1.2",
+    "isomorphic-fetch": "^2.2.1",
+    "remove": "^0.1.5",
     "spark-md5": "^2.0.2"
   },
   "files": [
@@ -59,6 +62,7 @@
     "parser": "babel-eslint",
     "global": [
       "describe",
+      "fetch",
       "it",
       "beforeEach",
       "afterEach",

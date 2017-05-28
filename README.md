@@ -2,6 +2,9 @@
 
 Chunked, pausable, recoverable uploading to Google Cloud Storage directly from the browser.
 
+Canonical repo is at: https://github.com/QubitProducts/gcs-browser-upload.git
+This fork removes dependencies on axios (replaced by fetch()), es6-promise, es6-error
+
 
 ## How does it work?
 
@@ -62,7 +65,7 @@ unpause.addEventListener('click', () => {
 
 ```js
 {
-  id: null, // required - a unique ID for the upload 
+  id: null, // required - a unique ID for the upload
   url: null, // required - GCS resumable URL
   file: null, // required - instance of File
   chunkSize: 262144, // optional - chunk size must be a multiple of 262144

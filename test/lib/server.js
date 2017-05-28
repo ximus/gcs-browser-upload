@@ -1,4 +1,3 @@
-import axios from 'axios'
 import express from 'express'
 import getPort from 'get-port'
 import pify from 'pify'
@@ -73,7 +72,10 @@ export async function start () {
   const app = express()
   app.use('/file', router)
   server = await pify(::app.listen)(port)
-  axios.defaults.baseURL = `http://localhost:${port}`
+  const footch = global.fetch
+  global.fetch = function (url, opts) {
+    return footch(`http://localhost:${port}${url}`, opts)
+  }
 }
 
 export function resetServer () {
