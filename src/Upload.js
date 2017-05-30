@@ -85,8 +85,11 @@ export default class Upload {
       const end = index * opts.chunkSize + chunk.byteLength - 1
 
       const headers = {
-        'Content-Type': opts.contentType,
         'Content-Range': `bytes ${start}-${end}/${total}`
+      }
+
+      if (opts.contentType) {
+        headers['Content-Type'] = opts.contentType
       }
 
       debug(`Uploading chunk ${index}:`)
