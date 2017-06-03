@@ -6,7 +6,8 @@
   "scripts": {
     "test": "make test",
     "compile": "make compile",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "install": "npm install && npm run compile"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "filereader": "oliverwoodings/FileReader",
     "get-port": "^2.1.0",
     "localStorage": "^1.0.3",
+    "longjohn": "^0.2.12",
     "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
     "pify": "^2.3.0",
@@ -48,7 +50,7 @@
     "axios": "^0.9.1",
     "debug": "^2.2.0",
     "es6-error": "^2.1.0",
-    "es6-promise": "^3.1.2",
+    "remove": "^0.1.5",
     "spark-md5": "^2.0.2"
   },
   "files": [

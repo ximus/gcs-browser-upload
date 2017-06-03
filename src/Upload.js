@@ -85,8 +85,11 @@ export default class Upload {
       const end = index * opts.chunkSize + chunk.byteLength - 1
 
       const headers = {
-        'Content-Type': opts.contentType,
         'Content-Range': `bytes ${start}-${end}/${total}`
+      }
+
+      if (opts.contentType) {
+        headers['Content-Type'] = opts.contentType
       }
 
       debug(`Uploading chunk ${index}:`)
@@ -125,9 +128,14 @@ export default class Upload {
 
       checkResponseStatus(res, opts, [308])
       const header = res.headers['range']
-      debug(`Received upload status from GCS: ${header}`)
-      const range = header.match(/(\d+?)-(\d+?)$/)
-      const bytesReceived = parseInt(range[2]) + 1
+      console.log(`Received upload status from GCS: ${header}`)
+      let bytesReceived
+      if (header) {
+        const range = header.match(/(\d+?)-(\d+?)$/)
+        bytesReceived = parseInt(range[2]) + 1
+      } else {
+        bytesReceived = 0
+      }
       return Math.floor(bytesReceived / opts.chunkSize)
     }
 
